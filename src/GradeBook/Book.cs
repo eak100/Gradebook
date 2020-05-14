@@ -35,14 +35,18 @@ namespace GradeBook
             result.High=double.MinValue;
             result.Low=double.MaxValue;
 
-            foreach(var number in grades)
+            var index = 0;
+            do
             {
+             /* Important thing to remember about
+             so while loops are that do loop will be executed at least
+             once! */
+                result.High= Math.Max(grades[index], result.High);
+                result.Low=Math.Min(grades[index], result.Low);  
+                result.Average+=grades[index];
+                index++;
 
-                result.High= Math.Max(number, result.High);
-                result.Low=Math.Min(number, result.Low);  
-                result.Average+=number;
-
-            }
+            }while(index < grades.Count);
             result.Average/=grades.Count;
 
 
