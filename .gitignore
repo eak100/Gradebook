@@ -1,9 +1,0 @@
-.*
-!.gitignore
-*.log
-bin
-obj
-
-bin
-obj
-packages
