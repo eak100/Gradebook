@@ -40,11 +40,11 @@ namespace GradeBook
             {
                 if(grades[index] == 42.1)
                 {
-                     /* If you use continue instead of break for 
-                     loop will continue but you will skip the
-                      iteration for the case when if condition 
-                      is satisfied. */
-                    continue;
+                     /* Another break statement is using goto. 
+                     with goto command you create a pointer and
+                     then you jump to the location of 
+                     that pointer if the condition is satisfied */
+                    goto done;
                 }
             
                 result.High= Math.Max(grades[index], result.High);
@@ -55,7 +55,7 @@ namespace GradeBook
             }
             result.Average/=grades.Count;
 
-
+            done:
             return result;
         }
         private List<double> grades;
