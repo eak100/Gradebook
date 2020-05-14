@@ -38,7 +38,13 @@ namespace GradeBook
             
             for (var index = 0; index < grades.Count; index++)
             {
-             /* for loop is done this way simple.. */
+                if(grades[index] == 42.1)
+                {
+                     /* If grade is 42.1  this break command will take us out 
+                     from the for loop. */
+                    break;
+                }
+            
                 result.High= Math.Max(grades[index], result.High);
                 result.Low=Math.Min(grades[index], result.Low);  
                 result.Average+=grades[index];
