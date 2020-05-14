@@ -6,20 +6,23 @@ namespace GradeBook.Tests
     public class TypeTests
     {
         [Fact]
-        public void stringsBehaveLikeValueTypes()
+        public void StringsBehaveLikeValueTypes()
         {
             string name = "Scott";
-            MakeUppercase(name);
+            var upper = MakeUppercase(name);
 
-            Assert.Equal("SCOTT",name)
+            Assert.Equal("Scott",name);
+            Assert.Equal("SCOTT",upper);
         }
 
-        private void MakeUppercase(string parameter)
+        private string MakeUppercase(string parameter)
         {
-            parameter.ToUpper();
+           return parameter.ToUpper();
             /* This test will fail because ToUpper() function
             returns a copy of the string Thus, our variable stays
             unchanged
+            
+            To circumvent this issue you need to return the new copied variable
             */
         }
 
