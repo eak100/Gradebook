@@ -11,12 +11,14 @@ namespace GradeBook.Tests
             var x = GetInt();
             SetInt(x);
 
-            Assert.Equal(42, x);
+            Assert.Equal(3, x);
         }
 
-        private void SetInt(int x)
-        {
-            x=42;
+        private void SetInt(int z)
+        { /* the parameter names don't have to match the variable 
+        names. Thuseven if you set int to 42 the result is 3  because
+        the value of the variable doesn't change */
+            z=42;
         }
 
         private int GetInt()
