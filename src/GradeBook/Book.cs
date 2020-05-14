@@ -40,9 +40,11 @@ namespace GradeBook
             {
                 if(grades[index] == 42.1)
                 {
-                     /* If grade is 42.1  this break command will take us out 
-                     from the for loop. */
-                    break;
+                     /* If you use continue instead of break for 
+                     loop will continue but you will skip the
+                      iteration for the case when if condition 
+                      is satisfied. */
+                    continue;
                 }
             
                 result.High= Math.Max(grades[index], result.High);
