@@ -6,6 +6,28 @@ namespace GradeBook.Tests
     public class TypeTests
     {
         [Fact]
+        public void CSharpCanPassbyRef()
+        {   
+
+            var book1 = GetBook("Book 1");
+            GetBookSetName(ref book1,"New Name");
+
+            Assert.Equal("New Name",book1.Name);
+
+        }
+
+        private void GetBookSetName(ref Book book, string name)
+        {/* out and ref are similar
+
+            The only difference is that with the out parameter 
+            C# assumes that the incoming reference has been initialized 
+            and so it will be an error if you do not assign to a parameter.
+
+        */
+            book=new Book(name);
+        }
+
+        [Fact]
         public void CSharpIsPassbyValue()
         {   
 
