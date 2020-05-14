@@ -35,10 +35,10 @@ namespace GradeBook
             result.High=double.MinValue;
             result.Low=double.MaxValue;
 
-            var index = 0;
-            while(index < grades.Count)
+            
+            for (var index = 0; index < grades.Count; index++)
             {
-             /* In this case loop will run once the condition is satisfied */
+             /* for loop is done this way simple.. */
                 result.High= Math.Max(grades[index], result.High);
                 result.Low=Math.Min(grades[index], result.Low);  
                 result.Average+=grades[index];
