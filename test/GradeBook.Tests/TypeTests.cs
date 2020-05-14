@@ -10,13 +10,13 @@ namespace GradeBook.Tests
         {   
 
             var book1 = GetBook("Book 1");
-            GetBookSetName(ref book1,"New Name");
+            GetBookSetName(out book1,"New Name");
 
             Assert.Equal("New Name",book1.Name);
 
         }
 
-        private void GetBookSetName(ref Book book, string name)
+        private void GetBookSetName(out Book book, string name)
         {/* out and ref are similar
 
             The only difference is that with the out parameter 
