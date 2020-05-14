@@ -7,3 +7,8 @@ Following a tutorial from Pluralsight to learn C#. Objective is :
 >The grades are entered as floating point numbers from 0 to 100, and the statistics should show us the highest grade, the lowest grade, and the average grade.
 >
 >-- The Project Manager'
+
+
+Tip: To remove cache and all Type:
+
+git rm -r . --cached
