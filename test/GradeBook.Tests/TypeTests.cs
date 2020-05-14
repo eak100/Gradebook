@@ -6,17 +6,36 @@ namespace GradeBook.Tests
     public class TypeTests
     {
         [Fact]
+        public void Test1()
+        {
+            var x = GetInt();
+            SetInt(x);
+
+            Assert.Equal(42, x);
+        }
+
+        private void SetInt(int x)
+        {
+            x=42;
+        }
+
+        private int GetInt()
+        {
+            return 3;
+        }
+
+        [Fact]
         public void CSharpCanPassbyRef()
         {   
 
             var book1 = GetBook("Book 1");
-            GetBookSetName(out book1,"New Name");
+            GetBookRefSetName(out book1,"New Name");
 
             Assert.Equal("New Name",book1.Name);
 
         }
 
-        private void GetBookSetName(out Book book, string name)
+        private void GetBookRefSetName(out Book book, string name)
         {/* out and ref are similar
 
             The only difference is that with the out parameter 
