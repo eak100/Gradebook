@@ -6,6 +6,24 @@ namespace GradeBook.Tests
     public class TypeTests
     {
         [Fact]
+        public void stringsBehaveLikeValueTypes()
+        {
+            string name = "Scott";
+            MakeUppercase(name);
+
+            Assert.Equal("SCOTT",name)
+        }
+
+        private void MakeUppercase(string parameter)
+        {
+            parameter.ToUpper();
+            /* This test will fail because ToUpper() function
+            returns a copy of the string Thus, our variable stays
+            unchanged
+            */
+        }
+
+        [Fact]
         public void ValueTypesAlsoPassByReference()
         {
             var x = GetInt();
