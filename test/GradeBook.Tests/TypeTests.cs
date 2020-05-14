@@ -6,18 +6,19 @@ namespace GradeBook.Tests
     public class TypeTests
     {
         [Fact]
-        public void Test1()
+        public void ValueTypesAlsoPassByReference()
         {
             var x = GetInt();
-            SetInt(x);
+            SetInt(out x);
 
-            Assert.Equal(3, x);
+            Assert.Equal(42, x);
         }
 
-        private void SetInt(int z)
+        private void SetInt(out int z)
         { /* the parameter names don't have to match the variable 
         names. Thuseven if you set int to 42 the result is 3  because
-        the value of the variable doesn't change */
+        the value of the variable doesn't change. However, it is possibe
+        to change value type by passsing a reference */
             z=42;
         }
 
