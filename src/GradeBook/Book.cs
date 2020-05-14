@@ -10,7 +10,7 @@ namespace GradeBook
         public Book(string name)//Constructor has to have a same name with class
         {
             grades=new List<double>();
-            this.Name=name;
+            Name=name; // C# now can differentiate between name and Name
         }
         public void AddGrade(double grade)
         {

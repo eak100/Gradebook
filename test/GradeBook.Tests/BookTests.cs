@@ -6,16 +6,8 @@ namespace GradeBook.Tests
     public class BookTests
     {
         [Fact]
-        public void Test1()
-        {   /*//there are 3 sections
-            //arrange
-            var x=5;
-            var y=2;
-            var expected =7;
-            //act
-            var actual=x+y;
-            //assert
-            Assert.Equal(expected, actual);*/
+        public void BookCalculatesAnAverageGrade()
+        {   
 
             // Arrange
             var book = new Book("");
