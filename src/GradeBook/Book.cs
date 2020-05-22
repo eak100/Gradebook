@@ -110,7 +110,7 @@ namespace GradeBook
             }
             set
             {
-                if(string.IsNullOrEmpty(value))
+                if(!String.IsNullOrEmpty(value))
                 {
                     name = value;
                 }
