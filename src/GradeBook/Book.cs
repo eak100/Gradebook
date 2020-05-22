@@ -13,8 +13,11 @@ namespace GradeBook
             Name=name; // C# now can differentiate between name and Name
         }
 
-        public void AddLetterGrade(char letter)
-        {// char is a single letter. It is value type.
+        public void AddGrade(char letter)
+        { /* It is possible to have methods with same name. This is called method overloading. As long as methods have different signatures.
+        It will work. Signature ex:
+        Addgrade(char ee)
+        AddGrade(String ee) are two different signatures. Return type is not important. It does not effect the signature*/
             switch(letter)
             {
                 case 'A':
