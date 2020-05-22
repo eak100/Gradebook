@@ -8,9 +8,21 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Erdi's book of wonder");
-            book.AddGrade(89.1);
-            book.AddGrade (90.5);
-            book.AddGrade(100);
+
+            while(true)
+            {
+                Console.WriteLine($"Please enter a grade. Press q to quit: ");
+                var input = Console.ReadLine();
+            
+                if(input == "q")
+                {
+                    break;
+                }
+
+                var grade = double.Parse(input); // converts string input to double
+                book.AddGrade(grade);
+                
+            }
 
             var stats = book.GetStatistics();
 
