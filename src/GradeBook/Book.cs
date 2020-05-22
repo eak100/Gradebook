@@ -12,6 +12,30 @@ namespace GradeBook
             grades=new List<double>();
             Name=name; // C# now can differentiate between name and Name
         }
+
+        public void AddLetterGrade(char letter)
+        {// char is a single letter. It is value type.
+            switch(letter)
+            {
+                case 'A':
+                    AddGrade(90);
+                    break;//lets you break out of switch.
+
+                case 'B':
+                    AddGrade(80);
+                    break;
+
+                case 'C':
+                    AddGrade(70);
+                    break;
+
+                default:
+                    AddGrade(0);
+                    break;
+            }
+
+
+        }
         public void AddGrade(double grade)
         {
             if(grade <= 100 && grade >=0)
@@ -38,15 +62,7 @@ namespace GradeBook
             
             for (var index = 0; index < grades.Count; index++)
             {
-                if(grades[index] == 42.1)
-                {
-                     /* Another break statement is using goto. 
-                     with goto command you create a pointer and
-                     then you jump to the location of 
-                     that pointer if the condition is satisfied */
-                    goto done;
-                }
-            
+             
                 result.High= Math.Max(grades[index], result.High);
                 result.Low=Math.Min(grades[index], result.Low);  
                 result.Average+=grades[index];
@@ -55,7 +71,7 @@ namespace GradeBook
             }
             result.Average/=grades.Count;
 
-            done:
+            
             return result;
         }
         private List<double> grades;
