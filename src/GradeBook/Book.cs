@@ -104,8 +104,8 @@ namespace GradeBook
 
         public string Name
         {
-           get;
-           private set; // Once defined book named can not be changed. Becomes Read-Only.
+            get;
+            set; // Once defined book named can not be changed. Becomes Read-Only.
         
         }
        // private string name;
