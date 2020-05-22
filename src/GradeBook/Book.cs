@@ -111,6 +111,9 @@ namespace GradeBook
        // private string name;
 
         // if it's private it can only be used within the class that is defined
-        readonly string category = "Science";
+        public const string CATEGORY = "Science";
+        /* when you change category from readonly to const. You can not change it anywhere. You would've change the category name 
+        in the public book class if you had readonly. As a nice code Constant values are usually written in 
+        Uppercase letters. If you want to reach this const everywhere in the code you can also make it public (public const ...)  */
     }
 }
