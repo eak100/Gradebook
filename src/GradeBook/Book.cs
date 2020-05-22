@@ -102,7 +102,22 @@ namespace GradeBook
         }
         private List<double> grades;
 
-        public string Name;
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                if(string.IsNullOrEmpty(value))
+                {
+                    name = value;
+                }
+                
+            }
+        }
+        private string name;
 
         // if it's private it can only be used within the class that is defined
     }
