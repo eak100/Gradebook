@@ -24,10 +24,21 @@ namespace GradeBook
                     var grade = double.Parse(input); // converts string input to double
                     book.AddGrade(grade);
                 }
-                catch(Exception ex)// Catches any type of exception
+                catch(ArgumentException ex)// Catches only argument error
                 {
                     Console.WriteLine(ex.Message);
                      //Message shows you the detail of the error  
+                }
+                catch(FormatException ex)// Catches only format error. 
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                /*Using different catch is better instead of using catching all exceptions since you will know the exact type of error*/
+                finally
+                {
+                    /* the piece of code that will always be executed */
+                    Console.WriteLine("***");
+                    /*Finally  is generally used to close a file, clear the execution  etc. */
                 }
             }
 
