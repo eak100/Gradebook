@@ -105,13 +105,12 @@ namespace GradeBook
         public string Name
         {
            get;
-           private set; // Once defined book named can not be changed
+           private set; // Once defined book named can not be changed. Becomes Read-Only.
         
         }
        // private string name;
 
         // if it's private it can only be used within the class that is defined
+        readonly string category = "Science";
     }
-
-
 }
