@@ -104,20 +104,11 @@ namespace GradeBook
 
         public string Name
         {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if(!String.IsNullOrEmpty(value))
-                {
-                    name = value;
-                }
-                
-            }
+           get;
+           private set; // Once defined book named can not be changed
+        
         }
-        private string name;
+       // private string name;
 
         // if it's private it can only be used within the class that is defined
     }
