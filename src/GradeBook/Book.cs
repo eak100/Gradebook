@@ -21,15 +21,33 @@ namespace GradeBook
         }
     }
 
-    public abstract class Book : NamedObject
+    public interface IBook
+    {
+        void AddGrade (double grade);
+        Statistics GetStatistics();
+        string Name {get;}
+        event GradeAddedDelegate GradeAdded;
+    }
+
+    public abstract class Book : NamedObject , IBook
     {
         public Book(string name) : base(name)
         {
         }
 
+        public virtual event GradeAddedDelegate GradeAdded;
+
         public abstract void AddGrade(double grade);
+
+        public virtual Statistics GetStatistics()
+        {
+            /* virtual keyword allows that derived class can override the details 
+            keyword abstract is already virtual so you dont have to add the ketword virtual there .
+            Event and properties can also be virtual.*/
+            throw new NotImplementedException();
+        }
         /* Abstract says that I want anything that is a bookbase that have an addgrade member.
-        But at this level I can not provide an implementation. I let the derived class figure out the implementation. */
+But at this level I can not provide an implementation. I let the derived class figure out the implementation. */
 
     }
     public class InMemoryBook  : Book //Instead of defining getters and setters within the class we can also inherit this object from outside like this.
@@ -88,10 +106,10 @@ namespace GradeBook
         // var doesn't work for fields! you can use this for everywhere within Book now
 
 
-        public  event GradeAddedDelegate GradeAdded;
+        public  override event GradeAddedDelegate GradeAdded;
 
-        public Statistics GetStatistics(){ 
-
+        public override Statistics GetStatistics(){ 
+            // to override simply add the keyword override
             var result= new Statistics();
             result.Average=0.0;
             result.High=double.MinValue;
