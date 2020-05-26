@@ -5,8 +5,16 @@ namespace GradeBook
 {
     public delegate void GradeAddedDelegate(object sender, EventArgs args); //It is legal to define an empty delegate
 
+    public class NamedObject
+    {
+        public string Name
+        {
+            get;
+            set;
+        }
+    }
 
-    public class Book  
+    public class Book  : NamedObject //Instead of defining getters and setters within the class we can also inherit this object from outside like this.
     {        
         public Book(string name)//Constructor has to have a same name with class
         {
@@ -110,14 +118,14 @@ namespace GradeBook
         }
         private List<double> grades;
 
-        public string Name
+/*        public string Name
         {
             get;
             set; // Once defined book named can not be changed. Becomes Read-Only.
         
         }
        // private string name;
-
+*/
         // if it's private it can only be used within the class that is defined
         public const string CATEGORY = "Science";
         /* when you change category from readonly to const. You can not change it anywhere. You would've change the category name 
