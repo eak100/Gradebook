@@ -21,9 +21,20 @@ namespace GradeBook
         }
     }
 
-    public class Book  : NamedObject //Instead of defining getters and setters within the class we can also inherit this object from outside like this.
+    public abstract class Book : NamedObject
+    {
+        public Book(string name) : base(name)
+        {
+        }
+
+        public abstract void AddGrade(double grade);
+        /* Abstract says that I want anything that is a bookbase that have an addgrade member.
+        But at this level I can not provide an implementation. I let the derived class figure out the implementation. */
+
+    }
+    public class InMemoryBook  : Book //Instead of defining getters and setters within the class we can also inherit this object from outside like this.
     {      // Book has a name and it is a NamedObject  
-        public Book(string name) : base(name) 
+        public InMemoryBook(string name) : base(name) 
         //Constructor has to have a same name with class
         {
             grades=new List<double>();
@@ -56,7 +67,7 @@ namespace GradeBook
 
 
         }
-        public void AddGrade(double grade)
+        public override void AddGrade(double grade) // to add polymorphism override term is added
         {
             if(grade <= 100 && grade >=0)
             {

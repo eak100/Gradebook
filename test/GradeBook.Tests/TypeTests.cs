@@ -89,7 +89,7 @@ namespace GradeBook.Tests
 
         }
 
-        private void GetBookRefSetName(out Book book, string name)
+        private void GetBookRefSetName(out InMemoryBook book, string name)
         {/* out and ref are similar
 
             The only difference is that with the out parameter 
@@ -97,7 +97,7 @@ namespace GradeBook.Tests
             and so it will be an error if you do not assign to a parameter.
 
         */
-            book=new Book(name);
+            book=new InMemoryBook(name);
         }
 
         [Fact]
@@ -111,9 +111,9 @@ namespace GradeBook.Tests
 
         }
 
-        private void GetBookSetName(Book book, string name)
+        private void GetBookSetName(InMemoryBook book, string name)
         {
-            book=new Book(name);
+            book=new InMemoryBook(name);
         }
 
 
@@ -128,7 +128,7 @@ namespace GradeBook.Tests
 
         }
 
-        private void SetName(Book book1, string name)
+        private void SetName(InMemoryBook book1, string name)
         {
             book1.Name=name;
         }
@@ -158,9 +158,9 @@ namespace GradeBook.Tests
 
         }
 
-        Book GetBook(string name)
+        InMemoryBook GetBook(string name)
         {
-            return new Book(name);
+            return new InMemoryBook(name);
         }
     }
 }

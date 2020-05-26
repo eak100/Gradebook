@@ -7,7 +7,7 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new Book("Erdi's book of wonder");
+            var book = new InMemoryBook("Erdi's book of wonder");
             book.GradeAdded += OnGradeAdded;
             /* // Since the event we created is a multi cast delegate we can create more than one without a problem.
              book.GradeAdded += OnGradeAdded;
@@ -20,7 +20,7 @@ namespace GradeBook
 
             var stats = book.GetStatistics();
 
-            Console.WriteLine(Book.CATEGORY);
+            Console.WriteLine(InMemoryBook.CATEGORY);
             Console.WriteLine($"For the book named {book.Name}");
             Console.WriteLine($"Highest Grade {stats.High:N1}");
             Console.WriteLine($"Lowest Grade {stats.Low:N1}");
