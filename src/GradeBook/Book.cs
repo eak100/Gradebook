@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GradeBook
 {
@@ -35,21 +36,43 @@ namespace GradeBook
         {
         }
 
-        public virtual event GradeAddedDelegate GradeAdded;
-
+        public abstract event GradeAddedDelegate GradeAdded;
         public abstract void AddGrade(double grade);
+        public abstract Statistics GetStatistics();
+    
+    }
 
-        public virtual Statistics GetStatistics()
+    public class DiskBook : Book
+    {
+        public DiskBook(string name) : base(name)
         {
-            /* virtual keyword allows that derived class can override the details 
-            keyword abstract is already virtual so you dont have to add the ketword virtual there .
-            Event and properties can also be virtual.*/
+        }
+
+        public override event GradeAddedDelegate GradeAdded;
+
+        public override void AddGrade(double grade)
+        {
+           using( var writer = File.AppendText($"{Name}.txt"))
+           {
+               writer.WriteLine(grade);
+               if(GradeAdded != null)
+               {
+                   GradeAdded(this, new EventArgs());
+               }
+           }
+           /*
+           writer.WriteLine(grade);
+
+           writer.Dispose(); // Clean up */
+        }
+
+        public override Statistics GetStatistics()
+        {
             throw new NotImplementedException();
         }
-        /* Abstract says that I want anything that is a bookbase that have an addgrade member.
-But at this level I can not provide an implementation. I let the derived class figure out the implementation. */
-
     }
+
+
     public class InMemoryBook  : Book //Instead of defining getters and setters within the class we can also inherit this object from outside like this.
     {      // Book has a name and it is a NamedObject  
         public InMemoryBook(string name) : base(name) 

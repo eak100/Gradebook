@@ -7,20 +7,14 @@ namespace GradeBook
     {
         static void Main(string[] args)
         {
-            var book = new InMemoryBook("Erdi's book of wonder");
+            IBook book = new DiskBook("Erdi's book of wonder");
             book.GradeAdded += OnGradeAdded;
-            /* // Since the event we created is a multi cast delegate we can create more than one without a problem.
-             book.GradeAdded += OnGradeAdded;
-             book.GradeAdded -= OnGradeAdded; 
-             //It is also legal to subtract a delegate.
-             book.GradeAdded += OnGradeAdded;
-             */
+
 
             EnterGrades(book);
 
             var stats = book.GetStatistics();
 
-            Console.WriteLine(InMemoryBook.CATEGORY);
             Console.WriteLine($"For the book named {book.Name}");
             Console.WriteLine($"Highest Grade {stats.High:N1}");
             Console.WriteLine($"Lowest Grade {stats.Low:N1}");
@@ -70,4 +64,6 @@ namespace GradeBook
             Console.WriteLine("A grade was added");
         }
     }
+
+   
 }
