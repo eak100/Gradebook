@@ -8,6 +8,13 @@ namespace GradeBook
         static void Main(string[] args)
         {
             var book = new Book("Erdi's book of wonder");
+            book.GradeAdded += OnGradeAdded; 
+            // Since the event we created is a multi cast delegate we can create more than one without a problem.
+            book.GradeAdded += OnGradeAdded;
+            book.GradeAdded -= OnGradeAdded; 
+            //It is also legal to subtract a delegate.
+            book.GradeAdded += OnGradeAdded;
+            
 
             while(true)
             {
@@ -50,6 +57,11 @@ namespace GradeBook
             Console.WriteLine($"Lowest Grade {stats.Low:N1}");
             Console.WriteLine($"Average is {stats.Average:N1}");
             Console.WriteLine($"The letter grade is {stats.Letter}");
+        }
+
+        static void OnGradeAdded(object sender, EventArgs e)
+        {
+            Console.WriteLine("A grade was added");
         }
     }
 }

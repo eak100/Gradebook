@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 namespace GradeBook
 {
+    public delegate void GradeAddedDelegate(object sender, EventArgs args); //It is legal to define an empty delegate
 
 
     public class Book  
@@ -44,6 +45,10 @@ namespace GradeBook
             if(grade <= 100 && grade >=0)
             {
                 grades.Add(grade);
+                if(GradeAdded != null)
+                {
+                    GradeAdded(this, new EventArgs());
+                }
             }
             else
             {
@@ -54,6 +59,9 @@ namespace GradeBook
 
         // List<double> grades= new List<double>();  Another way is to write a constructor
         // var doesn't work for fields! you can use this for everywhere within Book now
+
+
+        public  event GradeAddedDelegate GradeAdded;
 
         public Statistics GetStatistics(){ 
 
