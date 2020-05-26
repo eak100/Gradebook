@@ -9,6 +9,11 @@ namespace GradeBook
     { /* It is recommended to put each class in different files. However, for simplicity we skipped that.
 
     */
+        public NamedObject(string name)
+        {
+            Name = name;
+        }
+
         public string Name
         {
             get;
@@ -18,7 +23,8 @@ namespace GradeBook
 
     public class Book  : NamedObject //Instead of defining getters and setters within the class we can also inherit this object from outside like this.
     {      // Book has a name and it is a NamedObject  
-        public Book(string name)//Constructor has to have a same name with class
+        public Book(string name) : base(name) 
+        //Constructor has to have a same name with class
         {
             grades=new List<double>();
             Name=name; // C# now can differentiate between name and Name
