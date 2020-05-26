@@ -9,12 +9,12 @@ namespace GradeBook
         {
             var book = new Book("Erdi's book of wonder");
             book.GradeAdded += OnGradeAdded; 
-            // Since the event we created is a multi cast delegate we can create more than one without a problem.
+           /* // Since the event we created is a multi cast delegate we can create more than one without a problem.
             book.GradeAdded += OnGradeAdded;
             book.GradeAdded -= OnGradeAdded; 
             //It is also legal to subtract a delegate.
             book.GradeAdded += OnGradeAdded;
-            
+            */
 
             while(true)
             {
